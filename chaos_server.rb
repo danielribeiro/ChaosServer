@@ -1,6 +1,14 @@
 require 'sinatra'
 
-get '/' do
+def all_methods(path, opts={}, &block)
+  get path, opts, &block
+  post path, opts, &block
+  put path, opts, &block
+  delete path, opts, &block
+end
+
+
+all_methods '/' do
     sleepTime = params[:sleep].to_i
     statusParam = params[:status]
     response_body = params[:response_body] || "response_body"
