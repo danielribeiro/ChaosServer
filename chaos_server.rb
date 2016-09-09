@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'pp'
 
 def all_methods(path, opts={}, &block)
   get path, opts, &block
@@ -9,6 +10,8 @@ end
 
 
 all_methods '/' do
+    pp params
+    pp headers
     sleepTime = params[:sleep].to_i
     statusParam = params[:status]
     response_body = params[:response_body] || "response_body"
