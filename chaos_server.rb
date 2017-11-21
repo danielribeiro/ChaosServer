@@ -12,6 +12,7 @@ end
 all_methods '/' do
     pp params
     pp headers
+    pp request
     sleepTime = params[:sleep].to_i
     statusParam = params[:status]
     response_body = params[:response_body] || "response_body"
